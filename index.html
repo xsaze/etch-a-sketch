@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch A Sketch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id='title'>Etch A Sketch</div>
+</body>
+<script>
+    document.body.onload = createGrid(16);
+
+    function createGrid(v) {
+    var el = document.createElement('div');
+    el.id = 'grid';
+    for (var i = 0; i < v; i++) {
+        var row = document.createElement('div');
+        row.className = 'row';
+        for (var x = 1; x <= v; x++) {
+            var cell = document.createElement('div');
+            cell.className = 'gridsquare';
+            cell.id = (i * v) + x;
+            row.appendChild(cell);
+        }
+        el.appendChild(row);
+    }
+    document.body.appendChild (el);
+    }
+
+    function paintBlack(id) {
+        document.getElementById(id).style.backgroundColor = 'white';
+    };
+
+    const cells = document.getElementsByClassName('gridsquare');
+    Array.from(cells).forEach(function(cell) {
+      cell.addEventListener('mouseover', paintBlack(id);
+    });
+
+    
+    /*function addElement() {
+        const newDiv = document.createElement('div');
+        const newContent = document.createTextNode('Example text');
+        newDiv.appendChild(newContent);
+        
+        container.appendChild(newDiv);
+
+    }*/
+</script>
+</html>
