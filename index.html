@@ -46,17 +46,22 @@
     }
 
     function paintBlack(e) {
-        if (e.buttons > 0) {
-        e.target.style.backgroundColor = 'black';}
-    };
+        /*if (e.buttons > 0)*/
+        if (e.type === 'mouseover' && !mouseDown) return
+         
+        e.target.style.backgroundColor = 'black';};
     /* LISTENER */
     function listener() {
     const cells = document.getElementsByClassName('gridsquare');
     Array.from(cells).forEach((cell) => {
         cell.addEventListener('mouseover', paintBlack)
+        cell.addEventListener('mousedown', paintBlack)
     })}
 
-    
+    let mouseDown = false
+    document.body.onmousedown = () => (mouseDown = true)
+    document.body.onmouseup = () => (mouseDown = false)
+
 
     
     /*function addElement() {
