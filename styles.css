@@ -5,17 +5,17 @@
 
 .gridsquare {
     display: flex;
-    background-color: black;
+    background-color: white;
     color: white;
-    height:2px;
-    width: 2px;
+    height:6px;
+    width: 6px;
     padding: 0px;
     margin: 0px;
 }
 
-.title {
-    display:flex;
-    justify-content: center;
+#title {
+    font-size: 26px;
+    font-weight: bold;
     
 }
 
@@ -28,5 +28,11 @@ body {
 }
 
 button {
-   font-size: 6px;
+   font-size: 16px;
+}
+
+#grid {
+    border-width: 1px;
+    border-color: black;
+    border-style:solid;
 }
