@@ -5,13 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch A Sketch</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div id='title'>Etch A Sketch</div>
+    <button id='button1' >New Page</button> 
 </body>
 <script>
-    document.body.onload = createGrid(16);
+    var x = prompt('Choose size? Max size: 64.')
+    document.body.onload = createGrid(x);
+    listener();
+
+    var btn = document.getElementById('button1');
+    btn.addEventListener('click', newGrid);
+
+    function newGrid() {
+        const el = document.getElementById('grid');
+        el.remove();
+        var x = prompt('Choose size? Max size: 64.');
+        createGrid(x);
+        listener();
+    }
 
     function createGrid(v) {
     var el = document.createElement('div');
@@ -27,17 +41,22 @@
         }
         el.appendChild(row);
     }
-    document.body.appendChild (el);
+    let button = document.getElementById('button1')
+    document.body.insertBefore (el, button);
     }
 
-    function paintBlack(id) {
-        document.getElementById(id).style.backgroundColor = 'white';
+    function paintBlack(e) {
+        if (e.buttons > 0) {
+        e.target.style.backgroundColor = 'black';}
     };
-
+    /* LISTENER */
+    function listener() {
     const cells = document.getElementsByClassName('gridsquare');
-    Array.from(cells).forEach(function(cell) {
-      cell.addEventListener('mouseover', paintBlack(id);
-    });
+    Array.from(cells).forEach((cell) => {
+        cell.addEventListener('mouseover', paintBlack)
+    })}
+
+    
 
     
     /*function addElement() {
